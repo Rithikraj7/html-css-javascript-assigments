@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+        body {
+            background-color: lightgreen;
+        }
+
+    #myDIV {
+        background-color: lightgreen;
+        color: black;
+    }
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    #box {
+        background-color: red;
+    }
+</style>
+</head>
+<body>
+
+    <script>
+        function rever() {
+            const reverseNumber = number => parseFloat(number.toString().split('').reverse().join(''));
+            let number = prompt("enter the number");
+            alert(reverseNumber(number));
+        }
+
+        const Factorial = (num) => {
+            let fact = 1;
+            for (let i = 1; i <= num; i++) {
+                fact *= i;
+            }
+            alert(fact);
+        }
+
+        function find_longest_word() {
+            let str = prompt("enter the strings");
+            var array1 = str.match(/\w[a-z]{0,}/gi);
+            var result = array1[0];
+
+            for (var x = 1; x < array1.length; x++) {
+                if (result.length < array1[x].length) {
+                    result = array1[x];
+                }
+            }
+            alert(result);
+        }
+
+
+        function myFunction() {
+            var x = prompt("enter the string")
+            let arr = x.split(" ")
+            const getLengthStrings = (arr) => {
+                const lengthStrings = [];
+
+                for (let i = 0; i < arr.length; i++) {
+                    const length = prompt(`Enter the Length of the String ${arr[i]}:`);
+                    lengthStrings.push(arr[i].substring(0, length));
+                }
+                alert(lengthStrings);
+            };
+            getLengthStrings(arr);
+        }
+
+
+        function onclick1() {
+            document.getElementById("myDIV").style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        }
+        function onchange1(val) {
+            alert(" The new value is: " + val);
+        }
+
+
+        function keydownFunction() {
+            document.getElementById("demo23").style.backgroundColor = "red";
+        }
+
+        function keyupFunction() {
+            document.getElementById("demo23").style.backgroundColor = "green";
+        }
+
+    </script>
+    <h1 style="text-align:center">
+        Functions, Arrow Functions and Event Handling
+    </h1><br /><br />
+
+    <h2>
+        1) Apply JavaScript Arrow function to reverse a given Number. Given Number = 12243; Expected Output: 34221.
+    </h2>
+    <button onclick="rever()">Try it</button><br><br>
+
+    <h2>
+        2) Write Javascript arrow function to find factorial of a number.
+    </h2>
+    <button onclick="Factorial(prompt('enter the number'))">Try it</button><br><br>
+    <h2>
+        3) Write a JavaScript function that accepts a string as a parameter and find the longest word within the string.
+    </h2>
+    <button onclick="find_longest_word()">Try it</button><br><br>
+
+
+    <h2>
+        4) Write an arrow function that accepts an array of strings as input and prompt the message which shows �Enter the Length of the String:� Output: Function should return the entered length strings.
+    </h2>
+    <button onclick="myFunction()">Try it</button><br><br>
+
+<div id="myDIV">
+    <h1>
+        5) Write a Javascript program to demonstrate the following events
+
+        a) onClick  b) onMouseOver  c) onMouseOut   d) onChange   e) onKeyDown
+    </h1>
+    <button onclick="onclick1()" class="center">Click Here</button><br><br>
+    Enter text and click on screen for onChange event: <input type="text" name="txt" value=" " onchange="onchange1(this.value)">
+    Enter the text for onKeyDown event: <input type="text" id="demo23" onkeydown="keydownFunction()" onkeyup="keyupFunction()"><br /><br />
+
+    <img title="Hello" width="800" height="400" class="center" src="https://www.thepetexpress.co.uk/blog-admin/wp-content/uploads/2015/09/bordeaux-869020_1280.jpg" onmouseover="this.src='https://www.gifcen.com/wp-content/uploads/2022/06/dog-gif-9.gif'" onmouseout="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoARKUdedIJI-bCiNsNpauyljHr2XFuBne5skuO3roBl4OsP8X_Mmsfs98TBjauMkWXHM&usqp=CAU'" /><br /><br />
+
+</div>
+
+
+</body>
+</html >
+
+

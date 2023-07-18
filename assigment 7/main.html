@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: brown;
+        }
+    </style>
+    <script>
+
+        function is_grater(){
+            var promise = new Promise(function(resolve, reject) {
+                const x = prompt("enter the number");
+                if(x > 20) {
+                    resolve();
+                } else {
+                    reject();
+                }
+                });
+                promise.
+                    then(function () {
+                        alert("it is grater then 20")
+                        //console.log('it is grater then 20');
+                    }).
+                    catch(function () {
+                        alert("not grater then 20")
+                        //console.log('not grater then 20');
+                    });
+        }
+
+
+
+        function flight(){
+            const flight = prompt("do you want to book the flight /yes or no");
+            var promise = new Promise(function(resolve, reject) {
+                if(flight === 'yes') {
+                    resolve();
+                } else {
+                    reject();
+                }
+                });
+                promise.
+                    then(function () {
+                        hotel();
+                        //console.log('it is grater then 20');
+                    }).
+                    catch(function () {
+                        alert("you can not book the hotel please book the flight")
+                        //console.log('not grater then 20');
+                    });
+
+        function hotel(){
+            var promise = new Promise(function(resolve, reject) {
+                const hotel = prompt(" do you want to book the hotel");
+                if(hotel === 'yes') {
+                    resolve();
+                } else {
+                    reject();
+                }
+                });
+                promise.
+                    then(function () {
+                      alert('your hotel booking is successful')
+                        //console.log('it is grater then 20');
+                    }).
+                    catch(function () {
+
+                        alert("your hotel booking is unsuccessful")
+                        //console.log('not grater then 20');
+                    });
+        }
+    }
+
+
+                            // Function to perform arithmetic operation
+                // Function to perform arithmetic operations
+function performArithmeticOperation(a, b, operation) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let result;
+      switch (operation) {
+        case 'add':
+          result = a + b;
+          break;
+        case 'subtract':
+          result = a - b;
+          break;
+        case 'multiply':
+          result = a * b;
+          break;
+        case 'divide':
+          result = a / b;
+          break;
+        default:
+          reject('Invalid operation');
+          return;
+      }
+      resolve(result);
+    }, 1000); // Delay of 1 second
+  });
+}
+
+// Function to perform arithmetic operations synchronously
+async function performOperations() {
+    let a = parseInt(prompt('Enter number 1'));
+    let b = parseInt(prompt('Enter number 2'));
+
+  try {
+    const additionResult = await performArithmeticOperation(a, b, 'add');
+    alert('Addition: ' + additionResult)
+    //console.log('Addition:', additionResult);
+
+    const subtractionResult = await performArithmeticOperation(a, b, 'subtract');
+    alert('Subtraction: ' + subtractionResult)
+    //console.log('Subtraction:', subtractionResult);
+
+    const multiplicationResult = await performArithmeticOperation(a, b, 'multiply');
+    alert('Multiplication: ' + multiplicationResult)
+    //console.log('Multiplication:', multiplicationResult);
+
+    const divisionResult = await performArithmeticOperation(a, b, 'divide');
+    alert('Division: ' + divisionResult)
+    //console.log('Division:', divisionResult);
+  } catch (error) {
+    console.log('Error:', error);
+  }
+}
+
+// Call the function to perform operations
+
+
+
+
+    </script>
+</head>
+<body>
+    <h1 style="text-align: center;">Promises</h1>
+    <h2>1) Write a function numTest that takes a number as an argument and returns a Promise that tests if the value is greater than the value 20.     </h2>
+    <button onclick="is_grater()">click here </button>
+    <h2>2) Write a JavaScript program to book a hotel only after booking a flight.
+
+        [Hint: To achieve this, the promise returned from the bookHotel function is resolved only
+        
+        after resolving the promise from bookFlight function.
+        
+        If the promise gets rejected from bookflight then it won't execute the second function.]</h2>
+    <button onclick="flight()">click here </button>
+    <p id="demo"></p>
+    <h2>3) Implement a JavaScript promise to perform arithmetic operations. Display result for each operation synchronously using await () method. (Give delay in each promise object using settimeout() method).</h2>
+    <button onclick="performOperations()">click here </button>
+
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+        body {
+            background-color:aquamarine;
+            
+        }
+
+</style>
+</head>
+<body>
+
+    <script>
+        function year() {
+            let start = prompt("enter the starting year");
+            let end = prompt("enter the end year");
+            var year_range = [];
+            for (var i = start; i <= end; i++) {
+                year_range.push(i);
+            }
+            var new_array = [];
+
+            year_range.forEach(
+                function (year) {
+                    if (test_LeapYear(year))
+                        new_array.push(year);
+                });
+
+            return new_array;
+        }
+
+        function test_LeapYear(year) {
+            if ((year % 4 === 0 && year % 100 !== 0) || (year % 100 === 0 && year % 400 === 0)) {
+                document.write(year + "\n" + "\n" + "-refresh to go back");
+            } else {
+                return false;
+            }
+        }
+
+
+        function position() {
+            var arr = ["shift", "splice", "filter", "pop"];
+            let val = prompt("if insert enter 1 if delete enter 0");
+            if (val == 1) {
+                let val1 = prompt("enter the index position");
+                let val2 = prompt("enter the element to be inserted");
+                arr.splice(val1, 0, val2);
+                document.write("Remaining elements: " + arr);
+            }
+            else if (val == 0) {
+                var popped = arr.pop();
+                prompt("Removed element: " + popped);
+                document.write("Remaining elements: " + arr);
+            }
+            else {
+                alert("insert the valid option number answer");
+            }
+
+        }
+
+        function insert_arr() {
+            let len = prompt("enter the length of an array");
+            var arr1 = [];
+            for (var i = 0; i < len; i++) {
+                let ele = prompt("enter the elemets in an array for " + i + " index");
+                arr1.push(ele);
+            }
+            let idx = prompt("enter the element which you wanna search in a array : " + "[" + arr1 + "]");
+            for (i = 0; i < len; i++)
+                if (arr1[i] == idx) {
+                    return alert("Element is present at index " + i);
+                }
+            return alert("Element is not present in array");
+        }
+
+        function leng() {
+            let len = prompt("enter the length of an input array");
+            let arr = [];
+            for (let i = 0; i < len; i++) {
+                let inport = prompt("enter the element in input array");
+                arr.pop(inport);
+            }
+            const getLengthStrings = (arr) => {
+                const lengthStrings = [];
+
+                for (let i = 0; i < arr.length; i++) {
+                    const length = prompt(`Enter the Length of the String ${arr[i]}:`);
+                    lengthStrings.push(arr[i].substring(0, length));
+                }
+
+                //return lengthStrings;
+                alert(lengthStrings);
+            };
+        }
+
+
+
+    </script>
+    <h1 style="text-align:center"> Javascript Array </h1>
+    <h3>1)  Write a JavaScript program to find the leap years in a given range of years.</h3>
+
+    <button onclick="year()">leap year</button>
+
+    <h3>
+        2)  Write a JavaScript Program to add elements and to delete elements to the existing array at specific positions.
+    </h3>
+    <button onclick="position()">insert and delete</button>
+
+    <h3>
+        3) Write a JavaScript program to add elements to an array using the prompt. Implement Linear search on the array.
+    </h3>
+    <button onclick="insert_arr()">Linear search</button>
+
+    
+    <button onclick="leng()">input length</button>
+
+
+
+</body>
+</html>
+
+

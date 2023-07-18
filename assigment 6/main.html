@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        body{
+            background:cornflowerblue;
+        }
+            
+    </style>
+</head>
+<script>
+    function display(){
+        const person = {
+            fname:"rithik",
+            class:"VI",
+            rollnumber:20
+        };
+        let txt = " ";
+        for(let x in person){
+            txt+=person[x]+ ", ";
+        }
+        document.getElementById("demo").innerHTML= txt;
+
+    }
+    function key_value(){
+       
+	var obj = { "1": 5, "2": 65, "3": 87, "4": 98, "5": 34 };
+	var result = Object.keys(obj).map(function (key) {
+		return [Number(key), obj[key]];
+	});
+	
+	for(var i = 0; i < result.length; i++) {
+		for(var z = 0; z < result[i].length; z++) {
+            //document.getElementById("demo1").innerHTML= result[i][z] + " ";
+			document.write(result[i][z] + " ");
+		}
+		document.write("</br>");
+	}
+
+        //console.log(Object.entries(obj))
+    }
+
+    const mySet = new Set();
+    function addElement(){
+                let n = prompt("enter the number of elements")
+                for(let i=0;i<n;i++){
+                    mySet.add(prompt("enter the elements"))
+                }
+    }
+    function retrive(){
+                const hasValue = mySet.has(prompt("enter the element to be retrived"));
+                alert(hasValue); 
+    }
+                
+    function iterate(){
+            // Iterate over the set
+            for (const value of mySet) {
+                console.log(value);
+                }
+    }
+          function number4(){
+                    const myMap = new Map();
+
+                    myMap.set("a", 1);
+                    myMap.set("b", 2);
+                    myMap.set("c", 3);
+                    myMap.set("Hello", "World");
+
+                    const value = myMap.get("b");
+                    alert("Retrieve a value from the map using a key "+ value); // 2
+
+                    for (const [key, value] of myMap) {
+                    
+                    console.log(key, value);
+                    }
+                    console.log("//values Iterated over the map")
+
+          }   
+          
+
+            function number5a(){
+                        const numElements = 100000;
+
+                        // Benchmark adding elements to a Map
+                        console.time("Map add");
+                        const myMap = new Map();
+                        for (let i = 0; i < numElements; i++) {
+                        myMap.set(i, i);
+                        }
+                        console.timeEnd("Map add");
+
+                        // Benchmark removing elements from a Map
+                        console.time("Map remove");
+                        for (let i = 0; i < numElements; i++) {
+                        myMap.delete(i);
+                        }
+                        console.timeEnd("Map remove");
+
+                        // Benchmark adding elements to an Object
+                        console.time("Object add");
+                        const myObj = {};
+                        for (let i = 0; i < numElements; i++) {
+                        myObj[i] = i;
+                        }
+                        console.timeEnd("Object add");
+
+                        // Benchmark removing elements from an Object
+                        console.time("Object remove");
+                        for (let i = 0; i < numElements; i++) {
+                        delete myObj[i];
+                        }
+                        console.timeEnd("Object remove");
+
+            }          
+            
+            
+            function number6(){
+                    const numElements = prompt("enter the number element");
+                    // Create a Set with random numbers
+                    const mySet = new Set();
+                    for (let i = 0; i < numElements; i++) {
+                    const randomNum = Math.floor(Math.random() * numElements);
+                    mySet.add(randomNum);
+                    }
+
+                    // Convert the Set to an Array
+                    const myArray = Array.from(mySet);
+
+                    // Benchmark searching for a value in a Set
+                    console.time("Set search");
+                    const setHasValue = mySet.has(numElements - 1);
+                    console.timeEnd("Set search");
+
+                    // Benchmark searching for a value in an Array
+                    console.time("Array search");
+                    const arrayHasValue = myArray.includes(numElements - 1);
+                    console.timeEnd("Array search");
+                }
+
+    </script>
+<body>
+    <h1 style="text-align: center;">Indexed and Keyed Collections</h1>
+    <h2>1) Write a JavaScript program to list the properties values of a JavaScript object.
+
+        Sample object: 
+        
+        var student = { 
+        
+        name : "David Rayy", 
+        
+        sclass : "VI", 
+        
+        rollno : 12 };
+        
+        Sample Output: David Rayy, VI, 12</h2>
+    <p id= "demo"></p>
+    <button onclick="display()">Try it</button><br><br>
+    <h2>2.Write a JavaScript function to convert an object into a list of `[key, value]` pairs.</h2>
+    <button onclick="key_value()">Key_value</button><br><br>
+    <p id="demo1"></p>
+    <h2>3.Write a program to store values into a set, and to retrieve value from the set, to iterate over the set    </h2>
+    <button onclick="addElement()">addElement</button><br><br>
+    <button onclick="retrive()">retrive</button><br><br>
+    <button onclick="iterate()">itterate</button><br><br>
+    <h2>4.Write a program to store values into a map, and to retrieve value from the map using key, to iterate over the map.</h2>
+    <button onclick="number4()">click here</button><br><br>
+    <p>itteration through map the output will be displayed in console retrived value will be displayed on alert</p>
+    <h2>5.Show how map is different from object to store key value pairs with coding examples and prove Maps perform better than objects in most of the scenarios involving addition and removal of keys</h2>
+    <button onclick="number5a()">click here</button><br><br>
+    <p>//view console for output</p>
+    <h2>Show how a set is different from an array to store the value with a coding example and prove Sets perform better than Arrays in most of the scenarios involving searching values present in it.</h2>
+    <button onclick="number6()">click here</button><br><br>
+    <p>//view console for output</p>
+
+    
+</body>
+</html>

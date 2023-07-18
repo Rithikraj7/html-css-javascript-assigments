@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+    <title>my webpage4</title>
+
+</head>
+<body>
+    <style>
+        body {
+            background-color: lightcoral;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        h1 {
+            text-align: center;
+            color: aliceblue;
+        }
+    </style>
+
+    <script>
+        function caesarCipher() {
+            let plaintext = prompt("Enter the text to encrypt:");
+            let shift = parseInt(prompt("Enter the shift pattern:"));
+
+            let ciphertext = "";
+            for (let i = 0; i < plaintext.length; i++) {
+                let char = plaintext[i];
+                if (char.match(/[a-z]/i)) {
+                    let code = plaintext.charCodeAt(i);
+                    if (code >= 65 && code <= 90) {
+                        char = String.fromCharCode(((code - 65 + shift) % 26) + 65);
+                    } else if (code >= 97 && code <= 122) {
+                        char = String.fromCharCode(((code - 97 + shift) % 26) + 97);
+                    }
+                }
+                ciphertext += char;
+            }
+
+            alert("The encrypted text is: " + ciphertext);
+        }
+
+        function string() {
+            const plaintext = prompt("Enter the full name :");
+            const namearray = plaintext.split(" ");
+            let process = namearray[0].charAt(0) + " ." + namearray[1].charAt(0) + " . " + namearray[namearray.length - 1];
+            document.write(`<div style="font-size: 14x; color: red; background-color: cyan;"> ${process} </div>`);
+        }
+        function countString() {
+            var str = prompt("Enter the string:");
+            count = str.split(" ").length;
+            alert("the number of string are" + count);
+        }
+
+
+        function vowel_count() {
+            var str1 = prompt("Enter the string:");
+            var vowel_list = 'aeiouAEIOU';
+            var vcount = 0;
+
+            for (var x = 0; x < str1.length; x++) {
+                if (vowel_list.indexOf(str1[x]) !== -1) {
+                    vcount += 1;
+                }
+            }
+            //return vcount;
+            alter("the number of vowel are:" + vcount);
+
+        }
+
+    </script>
+
+    <h1 style="color: black;">assigment</h1>
+    <h2>Write JavaScript code to encrypt the text using Caesar Cipher technique. Display the encrypted text using an alert. Prompt the user for input and the shift pattern.</h2>
+    <button onclick="caesarCipher()">click</button>
+    <h2>
+        Write a JavaScript program to count the number of words in a string (using prompt and alert).
+    </h2>
+    <button onclick="countString()">click</button>
+    <h2>Write a JavaScript function that accepts a string as a parameter and counts the number of vowels within the string (using prompt and alert). </h2>
+    <button onclick="vowel_count()">click</button>
+
+    <h2>
+        Write a JavaScript code to process the name as the sample below.
+
+        Sample Input through prompt: Rama Krishna Narayan
+
+        Sample Output through document.write in font size 14, font color red and background color cyan: R. K. Narayan
+    </h2>
+    <button onclick="string()">click</button>
+
+
+
+    <h2>
+        Write a JavaScript code that returns a passed string with letters in alphabetical order. Use addEventListener() method.(Use input text box and innertext)
+    </h2>
+    <input type="text" id="inputBox" placeholder="Type a string...">
+    <p id="output"></p>
+    <script>
+        const inputBox = document.getElementById('inputBox');
+        const output = document.getElementById('output');
+
+        inputBox.addEventListener('input', () => {
+            const sortedString = inputBox.value.split('').sort().join('');
+            output.innerText = sortedString;
+        });
+    </script>
+
+</body>
+</html>
